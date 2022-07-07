@@ -2,9 +2,6 @@ import numpy
 
 import cv2
 
-testVariable = 0
-
-
 cap = cv2.VideoCapture(0)
 
 while True:
