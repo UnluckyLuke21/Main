@@ -1,6 +1,6 @@
 import cv2
 
-image = cv2.imread("C:\\Users\\L\\programming\\opencv\\images\\beatle.jpg")
+image = cv2.imread("example.jpeg")
 
 cv2.imshow('frame', image)
 
