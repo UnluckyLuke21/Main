@@ -1,12 +1,22 @@
 import cv2
 
-image = cv2.imread("example.jpeg")
+from matplotlib import pyplot as plt
 
-cv2.imshow('frame', image)
+# Simple Function to show a picture:
+def imshow(title= "", image = None):
+    
+    cv2.imshow(title, image)
 
-while True:
+    while True:
 
-    if cv2.waitKey(1) == ord('q'):
-        break
+        if cv2.waitKey(1) == ord('q'):
+            break
+
+# Reading the Image:
+image = cv2.imread('example.jpeg')
+
+#imshow("frame", image)
+
+print(image.shape)
 
 cv2.destroyAllWindows()
