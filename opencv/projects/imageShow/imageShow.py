@@ -15,7 +15,7 @@ def imshow(title= "", image = None):
 # Reading the Image:
 image = cv2.imread('example.jpeg')
 
-#imshow("frame", image)
+imshow("frame", image)
 
 print(image.shape)
 
