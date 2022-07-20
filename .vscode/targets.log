@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 20 21:26:34 2022
+# Make data base, printed on Wed Jul 20 23:02:16 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ PATH = /home/unluckyluke/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b9
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-57486129-6d00-4c29-b87e-c9c6535dc525.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-3fba9b3a-68d2-48ca-8412-e2c47057cd3f.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -57,13 +57,13 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = 172.30.192.1:0.0
+DISPLAY = localhost:0.0
 # environment
 PWD = /home/unluckyluke/programming
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/18555_interop
+WSL_INTEROP = /run/WSL/6994_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -205,6 +205,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=1/20=5%
-# Finished Make data base on Wed Jul 20 21:26:34 2022
+# Finished Make data base on Wed Jul 20 23:02:16 2022
 
  
