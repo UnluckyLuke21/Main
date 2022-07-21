@@ -5,6 +5,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <iostream>
+#include <vector>
 
 using std::cout;
 using std::endl;
@@ -45,12 +46,34 @@ int main(){
     // Going trough every Pixel from the Original and from mask:
     //cv::cvtColor(mask, mask, cv::COLOR_HSV2RGB);
 
-    cout << "Mask Size Width: " << mask.size().width << "Mask Size Height: " << mask.size().height <<endl;
+    cout << "Mask Size Width: " << mask.size().width << "   Mask Size Height: " << mask.size().height <<endl;
     cout << "Background Size: " << background.size() << endl;
 
-    //cv::cvtColor(mask, mask, cv::COLOR_BGR2GRAY);
+    background.copyTo(original);
 
-    //cv::imshow("Mask Gray", mask);
+    // Contours in original:
+    std::vector<std::vector<cv::Point>> contours;
+    cv::findContours(mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+    cv::drawContours(original, contours, -1, (0, 255, 0), 3);
+    cv::imshow("Contours", original);
+
+    // Find Pixels with pieces of Clouds:
+    cv::cvtColor(background, background, cv::COLOR_BGR2RGB);
+    for(int i = 0; i < background.rows; i++){
+
+        for(int j = 0; j < background.cols; j++){
+
+            // Check if the Pixel is from a piece of a Cloud:
+            if((int)mask.at<uchar>((int)i, (int)j) == 255){ // There is Just one Value in every mask Pixel -> mask is Grayscale:
+
+                background.at<cv::Vec3b>((int)i, (int)j)[0] += 100;
+                background.at<cv::Vec3b>((int)i, (int)j)[1] += 0;
+                background.at<cv::Vec3b>((int)i, (int)j)[2] += 0;
+            }
+        }
+    }
+
+    cv::cvtColor(background, background, cv::COLOR_RGB2BGR);
 
     cv::imshow("Original Boosted", background);
 
