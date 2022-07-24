@@ -1,8 +1,8 @@
 // This C++ Program only detects white spaces
 
 // Loading opencv libraries:
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv4/opencv2/highgui.hpp>
+#include <opencv4/opencv2/imgproc/imgproc.hpp>
 
 #include <iostream>
 #include <vector>
