@@ -3,7 +3,6 @@
 // Loading opencv libraries:
 #include <opencv4/opencv2/highgui.hpp>
 #include <opencv4/opencv2/imgproc/imgproc.hpp>
-#include <opencv2/opencv.hpp>
 
 #include <iostream>
 #include <vector>
@@ -39,7 +38,7 @@ int main(){
         // Resize the Frame:
         cv::resize(frame, frame, cv::Size(), 0.5, 0.5);
 
-        /*
+        
         // Create copy of the Frame:
         cv::Mat frameHSV;
         cv::Mat frameBoosted;
@@ -69,12 +68,9 @@ int main(){
                 }
             }
         }
-        */
-
-        cout << "Test" << endl;
 
         cv::imshow("Original", frame);
-        //cv::imshow("Boosted", frameBoosted);
+        cv::imshow("Boosted", frameBoosted);
 
         // Escape the Program:
         if(cv::waitKey() == 'q') break;
