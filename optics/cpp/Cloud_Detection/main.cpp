@@ -71,7 +71,7 @@ int main(){
         }
         */
 
-       cout << "Test" << endl;
+        cout << "Test" << endl;
 
         cv::imshow("Original", frame);
         //cv::imshow("Boosted", frameBoosted);
