@@ -7,6 +7,9 @@
 #include <iostream>
 #include <vector>
 
+#include "include/macros.hpp"
+#include "include/source.hpp"
+
 using std::cout;
 using std::endl;
 
@@ -32,6 +35,9 @@ int main(){
         return -1;
     }
 
+    // Create Mat to safe Grayscale Image:
+    cv::Mat mask;
+
     // Loop to compute everything:
     while(webcam.read(frame)){
 
@@ -45,13 +51,7 @@ int main(){
         frame.copyTo(frameHSV);
         frame.copyTo(frameBoosted);
 
-        // Create HSV Color of the Frame:
-        cv::cvtColor(frameHSV, frameHSV, cv::COLOR_BGR2HSV);
-
-        // Create an Image to see the white spaces in the original Target:
-        cv::Mat mask;
-        cv::inRange(frameHSV, whiteLow, whiteHigh, mask);
-        cv::imshow("Mask", mask);
+        mask = srchCol(frame, white);
 
         // Going trough every Pixel from the Original and from mask:
         // Find Pixels with pieces of Clouds:
