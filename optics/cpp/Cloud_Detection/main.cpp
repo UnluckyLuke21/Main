@@ -8,19 +8,27 @@
 #include <vector>
 
 #include "include/macros.hpp"
-#include "include/source.hpp"
+//#include "include/source.hpp"
 
 using std::cout;
 using std::endl;
 
-// HSV Value Range for the Clouds from Gimp (in opencv there are other Values):
-// H 0 - 360
-// S 5 - 61
-// V 50 - 100
+// Defining Function to search specific Color in an Image and return Grayscale Image:
+cv::Mat srchCol(cv::Mat frame, std::vector<cv::Scalar> col){
 
-// Defining the White Range:
-cv::Scalar whiteLow = cv::Scalar(0, 12, 127);
-cv::Scalar whiteHigh = cv::Scalar(180, 155, 255);
+    // Copy frame:
+    cv::Mat frameHSV;
+    frame.copyTo(frameHSV);
+
+    // Convert Frame from BGR to HSV:
+    cv::cvtColor(frameHSV, frameHSV, cv::COLOR_BGR2HSV);
+
+    // Create an Image to see the white spaces in the original Target:
+    cv::Mat mask;
+    cv::inRange(frameHSV, col[0], col[1], mask);
+
+    return mask;
+}
 
 int main(){
 
@@ -69,6 +77,7 @@ int main(){
             }
         }
 
+        if(DEBUG) cv::imshow("Mask", mask);
         cv::imshow("Original", frame);
         cv::imshow("Boosted", frameBoosted);
 
