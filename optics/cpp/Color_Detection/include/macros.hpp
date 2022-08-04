@@ -9,6 +9,8 @@
 
 #define WEBCAM_STREAM 1
 
+#define WINDOW_SIZE 0.75
+
 // Defining HSV Colors for Detection in Image as Vector of cv::Scalar:
 
 // White:

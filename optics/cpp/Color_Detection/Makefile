@@ -1,6 +1,6 @@
 CXX       := /usr/bin/g++
-CXX_FLAGS := -std=c++17 -fdiagnostics-color=always -g -Wall -Wpedantic
-LIBRARIES := -lfmt -opencv4
+CXX_FLAGS := -std=c++17 -fdiagnostics-color=always -g -Wall -Wpedantic `pkg-config --cflags opencv4`
+LIBRARIES := -lfmt `pkg-config --libs opencv4`
 
 SRC     := src
 INCLUDE := include

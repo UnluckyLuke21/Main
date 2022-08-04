@@ -1,4 +1,4 @@
-// This C++ Program only detects white spaces
+// This C++ Program detects Color in every Pixel of the Image
 
 // Loading opencv libraries:
 #include <opencv4/opencv2/highgui.hpp>
@@ -8,27 +8,10 @@
 #include <vector>
 
 #include "include/macros.hpp"
-//#include "include/source.hpp"
+#include "include/source.hpp"
 
 using std::cout;
 using std::endl;
-
-// Defining Function to search specific Color in an Image and return Grayscale Image:
-cv::Mat srchCol(cv::Mat frame, std::vector<cv::Scalar> col){
-
-    // Copy frame:
-    cv::Mat frameHSV;
-    frame.copyTo(frameHSV);
-
-    // Convert Frame from BGR to HSV:
-    cv::cvtColor(frameHSV, frameHSV, cv::COLOR_BGR2HSV);
-
-    // Create an Image to see the white spaces in the original Target:
-    cv::Mat mask;
-    cv::inRange(frameHSV, col[0], col[1], mask);
-
-    return mask;
-}
 
 int main(){
 
@@ -53,7 +36,7 @@ int main(){
     while(webcam.read(frame)){
 
         // Resize the Frame:
-        cv::resize(frame, frame, cv::Size(), 0.5, 0.5);
+        cv::resize(frame, frame, cv::Size(), WINDOW_SIZE, WINDOW_SIZE);
 
         // Flip the Image:
         cv::flip(frame, frame, 1);
