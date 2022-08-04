@@ -7,6 +7,8 @@
 
 #define DEBUG 0
 
+#define WEBCAM_STREAM 1
+
 // Defining HSV Colors for Detection in Image as Vector of cv::Scalar:
 
 // White:

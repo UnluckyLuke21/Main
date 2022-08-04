@@ -47,10 +47,16 @@ int main(){
     cv::Mat mask;
 
     // Loop to compute everything:
+    cv::namedWindow("Original", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("White Boosted", cv::WINDOW_AUTOSIZE);
+
     while(webcam.read(frame)){
 
         // Resize the Frame:
         cv::resize(frame, frame, cv::Size(), 0.5, 0.5);
+
+        // Flip the Image:
+        cv::flip(frame, frame, 1);
 
         
         // Create copy of the Frame:
@@ -78,11 +84,12 @@ int main(){
         }
 
         if(DEBUG) cv::imshow("Mask", mask);
+
         cv::imshow("Original", frame);
-        cv::imshow("Boosted", frameBoosted);
+        cv::imshow("White Boosted", frameBoosted);
 
         // Escape the Program:
-        if(cv::waitKey() == 'q') break;
+        if(cv::waitKey(33) >= 0) break;
     }
 
     return 0;

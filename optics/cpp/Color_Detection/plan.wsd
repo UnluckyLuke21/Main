@@ -1,0 +1,11 @@
+@startuml test
+
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Frame {
+   #Clouds : vector<cv::rectangle>
+   --
+}
+
+@enduml

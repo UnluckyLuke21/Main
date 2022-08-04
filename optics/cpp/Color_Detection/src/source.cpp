@@ -1,7 +1,3 @@
-// Loading opencv libraries:
-#include <opencv4/opencv2/highgui.hpp>
-#include <opencv4/opencv2/imgproc/imgproc.hpp>
-
 #include <vector>
 
 #include "include/source.hpp"
