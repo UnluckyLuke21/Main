@@ -3,6 +3,7 @@
 // Loading opencv libraries:
 #include <opencv4/opencv2/highgui.hpp>
 #include <opencv4/opencv2/imgproc/imgproc.hpp>
+#include <opencv2/videoio.hpp>
 
 #include <iostream>
 #include <vector>
@@ -15,9 +16,20 @@ using std::endl;
 
 int main(){
 
+    // Debug
+    if(DEBUG) cout << "DEBUG: Starting Main" << endl;
+
     // Setup Camera:
     cv::Mat frame;
-    cv::VideoCapture webcam(0);
+    cv::VideoCapture webcam;
+
+    // Developer Mode:
+    if(DEVELOPER_MODE) webcam.open(0, cv::CAP_V4L2);
+    // User Mode:
+    else webcam.open(0);
+
+    // Debug
+    if(DEBUG) cout << "DEBUG: Camera Model created!" << endl;
 
     // Check if VideoCapture is working:
     if(!webcam.isOpened()){ 
@@ -26,6 +38,9 @@ int main(){
         return -1;
     }
 
+    // Debug
+    if(DEBUG) cout << "DEBUG: Camera Opened successfully!" << endl;
+
     // Create Mat to safe Grayscale Image:
     cv::Mat mask;
 
@@ -33,10 +48,16 @@ int main(){
     cv::namedWindow("Original", cv::WINDOW_AUTOSIZE);
     cv::namedWindow("White Boosted", cv::WINDOW_AUTOSIZE);
 
+    // Debug
+    if(DEBUG) cout << "DEBUG: Starting Loop!" << endl;
+
     while(webcam.read(frame)){
 
         // Resize the Frame:
-        cv::resize(frame, frame, cv::Size(), WINDOW_SIZE, WINDOW_SIZE);
+        // Developer Mode:
+        if(DEVELOPER_MODE) cv::resize(frame, frame, cv::Size(), WINDOW_SIZE * 1.5, WINDOW_SIZE * 1.5);
+        // User Mode:
+        else cv::resize(frame, frame, cv::Size(), WINDOW_SIZE * 0.75, WINDOW_SIZE * 0.75);
 
         // Flip the Image:
         cv::flip(frame, frame, 1);

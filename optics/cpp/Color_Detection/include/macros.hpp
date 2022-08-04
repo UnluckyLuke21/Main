@@ -7,9 +7,11 @@
 
 #define DEBUG 0
 
+#define DEVELOPER_MODE 1
+
 #define WEBCAM_STREAM 1
 
-#define WINDOW_SIZE 0.75
+#define WINDOW_SIZE 1
 
 // Defining HSV Colors for Detection in Image as Vector of cv::Scalar:
 
