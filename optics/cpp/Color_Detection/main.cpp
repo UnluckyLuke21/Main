@@ -1,4 +1,4 @@
-// This C++ Program detects Color in every Pixel of the Image
+// This C++ Program detects Color in every Pixel of the Image with HSV
 
 // Loading opencv libraries:
 #include <opencv4/opencv2/highgui.hpp>
@@ -54,6 +54,7 @@ int main(){
     while(webcam.read(frame)){
 
         // Resize the Frame:
+        
         // Developer Mode:
         if(DEVELOPER_MODE) cv::resize(frame, frame, cv::Size(), WINDOW_SIZE * 1.5, WINDOW_SIZE * 1.5);
         // User Mode:
