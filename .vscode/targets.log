@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug  4 17:51:35 2022
+# Make data base, printed on Mon Aug  8 22:20:08 2022
 
 # Variables
 
@@ -39,7 +37,7 @@ QT_ACCESSIBILITY = 1
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/102/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/103/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -57,17 +55,17 @@ OLDPWD = /home/unluckyluke
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/unluckyluke/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = /home/unluckyluke/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.MKC4P1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.7A9QQ1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.124
+GNOME_TERMINAL_SERVICE = :1.129
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -99,13 +97,13 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 24671
+VSCODE_PID = 11049
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/unluckyluke-ZenBook-14:@/tmp/.ICE-unix/2912,unix/unluckyluke-ZenBook-14:/tmp/.ICE-unix/2912
+SESSION_MANAGER = local/unluckyluke-ZenBook-14:@/tmp/.ICE-unix/2902,unix/unluckyluke-ZenBook-14:/tmp/.ICE-unix/2902
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +127,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/8d2be727_0ba9_4d1a_8a05_523b4b3773bf
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/be22719c_e5d1_400c_9a9c_743d068eb5c4
 # environment
 MAKELEVEL := 0
 # default
@@ -149,9 +147,9 @@ SNAP_USER_COMMON = /home/unluckyluke/snap/code/common
 # environment
 LC_TIME = de_DE.UTF-8
 # environment
-SNAP = /snap/code/102
+SNAP = /snap/code/103
 # environment
-SNAP_REVISION = 102
+SNAP_REVISION = 103
 # environment
 SNAP_REAL_HOME = /home/unluckyluke
 # environment
@@ -183,7 +181,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2932
+SYSTEMD_EXEC_PID = 2921
 # environment
 DISPLAY = :0
 # environment
@@ -195,7 +193,7 @@ MAKE_VERSION := 4.3
 # environment
 DISABLE_WAYLAND = 1
 # environment
-SNAP_DATA = /var/snap/code/102
+SNAP_DATA = /var/snap/code/103
 # environment
 SNAP_CONTEXT = MPtCIRkAOsr9E5wd91rg6ZjHDYP1CvclsxY4StpBa1nRh2LEFBNc
 # environment
@@ -219,13 +217,13 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-92b0b131-1.69.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-92b0b131-1.70.0-main.sock
 # environment
 TERM = xterm-256color
 # environment
 SNAP_NAME = code
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/102/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/103/usr/share/glib-2.0/schemas
 # environment
 IM_CONFIG_PHASE = 1
 # default
@@ -233,7 +231,7 @@ IM_CONFIG_PHASE = 1
 # automatic
 <F = $(notdir $<)
 # environment
-SNAP_VERSION = 3b889b09
+SNAP_VERSION = da76f933
 # default
 SUFFIXES := 
 # environment
@@ -247,7 +245,7 @@ SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SNAP_USER_DATA = /home/unluckyluke/snap/code/102
+SNAP_USER_DATA = /home/unluckyluke/snap/code/103
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -280,6 +278,8 @@ Makefile:
 #  Implicit rule search has been done.
 #  File does not exist.
  
+make: *** No rule to make target 'all'.  Stop.
+
 #  File has been updated.
 #  Failed to be updated.
 
@@ -324,6 +324,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Thu Aug  4 17:51:35 2022
+# Finished Make data base on Mon Aug  8 22:20:08 2022
 
  
