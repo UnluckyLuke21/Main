@@ -14,6 +14,9 @@ using std::endl;
 
 int main(){
 
+    // Developer Mode
+    if(DEVELOPER_MODE) cout << "DEVELOPER MODE" << endl;
+
     // Setup Livestream from Webcam:
     cv::VideoCapture webcam;
     if(setupLivestream(webcam));
