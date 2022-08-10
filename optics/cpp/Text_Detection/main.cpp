@@ -29,6 +29,9 @@ int main(){
 
     while(webcam.read(frame)){
 
+        // Flip the Image:
+        cv::flip(frame, frame, 1);
+
         cv::imshow("Original", frame);
 
         // Escape the Program:
