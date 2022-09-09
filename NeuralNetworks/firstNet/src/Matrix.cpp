@@ -14,7 +14,7 @@ Matrix::Matrix(int r, int c) : rows(r), cols(c){
         // Spalten erstellen:
         matrix.push_back(vector<double>());
 
-        for(size_t j = 0; j < rows; j++){
+        for(size_t j = 0; j < (size_t)rows; j++){
 
             // Zeilen erstellen:
             matrix[i].push_back(0.0);
