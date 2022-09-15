@@ -159,6 +159,8 @@ int main(){
         }
     }
 
+    cout << endl;
+
     // Print Final Weights after done Training:
     cout << "Final Hidden Weights" << endl;
     for(int j = 0; j < NUM_HIDDEN_NODES; j++){

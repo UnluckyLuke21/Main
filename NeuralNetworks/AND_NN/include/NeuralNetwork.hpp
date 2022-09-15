@@ -1,13 +1,20 @@
 #include "Matrix.hpp"
 
+class Neuron{
+    double value;
+    vector<double> connectionWeights;
+
+
+};
+
 class Layer{
-    vector<double> neurons;
+    vector<Neuron> neurons;
 };
 
 class NeuralNetwork{
-    Matrix inputLayer;
-    Matrix hiddenLayers;
-    Matrix OutputLayer;
+    Layer inputLayer;
+    vector<Layer> hiddenLayers;
+    Layer OutputLayer;
 
 public:
     NeuralNetwork();
