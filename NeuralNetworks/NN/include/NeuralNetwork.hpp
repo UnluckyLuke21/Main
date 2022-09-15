@@ -1,12 +1,21 @@
-#include "Matrix.hpp"
+#include <vector>
+
+using std::vector;
 
 class Neuron{
-    double value;
     vector<double> connectionWeights;
+
+public:
+    Neuron (int connections);
+
+    double activation();
 };
 
 class Layer{
     vector<Neuron> neurons;
+
+public:
+    Layer (int n);
 };
 
 class NeuralNetwork{
@@ -15,5 +24,5 @@ class NeuralNetwork{
     Layer OutputLayer;
 
 public:
-    NeuralNetwork();
+    NeuralNetwork (int inputNeurons, int nHLayers, int outputNeurons);
 };

@@ -3,7 +3,7 @@
 // Default Constructor:
 Matrix::Matrix() : rows(0), cols(0){
 
-    matrix.push_back(vector<double>(0));
+matrix.push_back(vector<double>(0));
 }
 
 // Base Constructor:
