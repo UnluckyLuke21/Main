@@ -1,6 +1,6 @@
-// Simple Neural Network that can learn the XOR Function
+// Simple Neural Network that can learn the AND Function
 
-#include "include/Matrix.hpp"
+//#include "include/Matrix.hpp"
 
 #include <iostream>
 #include <math.h>
@@ -58,8 +58,8 @@ int main(){
 
     // Training Data:
     double trainingInputs[NUM_TRAINING_SETS][NUM_INPUTS] = {{0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}};
-    double trainingOutputs[NUM_TRAINING_SETS][NUM_OUTPUTS] = {{0.0}, {1.0}, {1.0}, {0.0}};
-    
+    double trainingOutputs[NUM_TRAINING_SETS][NUM_OUTPUTS] = {{0.0}, {0.0}, {0.0}, {1.0}};
+
     // Initializing Weights in first Layer:
     for(int i = 0; i < NUM_INPUTS; i++){
         for(int j = 0; j < NUM_HIDDEN_NODES; j++){
@@ -156,9 +156,6 @@ int main(){
                     hiddenWeights[k][j] += trainingInputs[i][k] * deltaHidden[j] * learningRate;
                 }
             }
-
-
-
         }
     }
 
