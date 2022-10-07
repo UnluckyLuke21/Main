@@ -1,5 +1,5 @@
 #include "NeuralNetwork.hpp"
 
-Neuron::Neuron (int connections) : connectionWeights(connections, 0.0){}
+Node::Node (int connections) : connectionWeights(connections, 0.0){}
 
-Layer::Layer (int n) : neurons(n, Neuron(0)){}
+Layer::Layer (int n) : nodes(n, Node(0)){}
