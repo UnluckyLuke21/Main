@@ -2,22 +2,25 @@
 
 using std::vector;
 
-class Neuron{
+// Node class
+class Node{
     vector<double> connectionWeights;
 
 public:
-    Neuron (int connections);
+    Node(int connections);
 
     double activation();
 };
 
+// Layer class
 class Layer{
-    vector<Neuron> neurons;
+    vector<Node> nodes;
 
 public:
     Layer (int n);
 };
 
+// NeuralNetwork class
 class NeuralNetwork{
     Layer inputLayer;
     vector<Layer> hiddenLayers;
