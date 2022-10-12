@@ -1,5 +1,6 @@
 #include "../include/neuralnet.hpp"
 #include <cstdlib>
+#include <fstream>
 #pragma once
 
 //************************* class Node *****************************
@@ -103,6 +104,81 @@ Net::Net(const vector<unsigned> &topology){
     }
 
     m_recentAverageSmoothingFactor = 100.0;
+}
+
+void Net::store(string path){
+
+    // Store Weights to file:
+    std::ofstream file;
+    file.open(path);
+
+    // Iterate through Layers:
+    for(int i = 0; i < m_layers.size(); i++){
+        // Iterate through Nodes:
+        for(int j = 0; j < m_layers[i].size(); j++){
+
+            for(int k = 0; k < m_layers[i][j].m_outputWeights.size(); k++){
+                file << m_layers[i][j].m_outputWeights[k].deltaWeights << endl;
+                file << m_layers[i][j].m_outputWeights[k].weight << endl;
+            }
+        }
+    }
+    cout << "Stored Weights!" << endl;
+}
+
+void Net::load(string path){
+
+    cout << "Loading Model..." << endl;
+    
+    std::ifstream file(path);
+    if(!file.is_open()){
+        cout << "Could not open " << path << endl;
+        return;
+    }
+
+    string line;
+    double value;
+    vector<double> values;
+
+    while(not file.eof()){
+        file >> line;
+        values.push_back(std::stod(line));
+    }
+    file.close();
+
+    int iter = 0;
+
+    // Iterate through Layers:
+    for(int i = 0; i < m_layers.size(); i++){
+        // Iterate through Nodes:
+        for(int j = 0; j < m_layers[i].size(); j++){
+
+            for(int k = 0; k < m_layers[i][j].m_outputWeights.size(); k++){
+                m_layers[i][j].m_outputWeights[k].deltaWeights = values[iter++];
+                m_layers[i][j].m_outputWeights[k].weight = values[iter++];
+            }
+        }
+    }
+    file.close();
+}
+
+void Net::showWeights(void){
+
+    cout << "Showing Weights: " << endl << endl;
+
+    // Iterate through Layers:
+    for(int i = 0; i < m_layers.size(); i++){
+        // Iterate through Nodes:
+        cout << "Layer " << i + 1 << endl;
+        for(int j = 0; j < m_layers[i].size(); j++){
+            cout << "Node " << j + 1 << endl;
+
+            for(int k = 0; k < m_layers[i][j].m_outputWeights.size(); k++){
+                cout << m_layers[i][j].m_outputWeights[k].deltaWeights << endl;
+                cout << m_layers[i][j].m_outputWeights[k].weight << endl << endl;
+            }
+        }
+    }
 }
 
 void Net::getResults(vector<double> &resultVals) const{

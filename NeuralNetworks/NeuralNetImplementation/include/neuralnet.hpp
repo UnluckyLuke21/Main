@@ -2,10 +2,13 @@
 #include <vector>
 #include <cassert>
 #include <math.h>
+#include <string>
+#include <fstream>
 
 using std::vector;
 using std::cout;
 using std::endl;
+using std::string;
 
 struct Connection{
     double weight;
@@ -26,6 +29,7 @@ public:
     void calcOutputGradients(double targetVal);
     void calcHiddenGradients(const Layer &nextLayer);
     void updateInputWeights(Layer &prevLayer);
+    vector<Connection> m_outputWeights;
 
 private:
     double learningRate;
@@ -35,7 +39,7 @@ private:
     double randomWeight(void);
     double sumDOW(const Layer &nextLayer) const;
     double m_outputVal;
-    vector<Connection> m_outputWeights;
+    
     unsigned m_myIndex;
     double m_gradient;
 };
@@ -48,6 +52,9 @@ public:
     void feedForward(const vector<double> &inputVals);
     void backProp(const vector<double> &targetVals);
     void getResults(vector<double> &resultVals) const;
+    void store(string path);
+    void load(string path);
+    void showWeights(void);
 
 private:
     vector<Layer> m_layers;
