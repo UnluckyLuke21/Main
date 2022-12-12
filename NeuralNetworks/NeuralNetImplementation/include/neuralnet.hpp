@@ -55,6 +55,7 @@ public:
     void store(string path);
     void load(string path);
     void showWeights(void);
+    void predict(const vector<double> &inputVals);
 
 private:
     vector<Layer> m_layers;

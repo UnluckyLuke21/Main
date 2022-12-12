@@ -181,6 +181,10 @@ void Net::showWeights(void){
     }
 }
 
+void Net::predict(const vector<double> &inputVals){
+    
+}
+
 void Net::getResults(vector<double> &resultVals) const{
 
     resultVals.clear();
