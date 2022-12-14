@@ -28,8 +28,6 @@ public:
     void print();
     void fprint();
     double predict();
-
-
 private:
     vector<Layer> net;
 };
