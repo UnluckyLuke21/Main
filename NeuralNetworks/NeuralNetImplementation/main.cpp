@@ -24,6 +24,7 @@ int main(){
     topology.push_back(3);
     topology.push_back(1);
     Net myNet(topology);
+    Net n(topology);
 
     for(int i = 0; i < 10000; i++){
 
