@@ -11,11 +11,18 @@ int main(){
     // Providing a seed value
 	srand((unsigned) time(NULL));
 
-    Net myNet(2, 2, 4, 1);
+    // Create Input:
+    vector<double> in;
+    in.push_back(1);
+    in.push_back(1);
+
+    Net myNet(1, 1, 2, 1);
     myNet.print();
     myNet.fprint();
 
     myNet.initializeWeights();
+
+    myNet.predict();
 
     return 0;
 }

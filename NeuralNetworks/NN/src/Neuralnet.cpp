@@ -3,8 +3,6 @@
 //------------------Node---------------------
 
 Node::Node(double v) : value(v){
-
-    weights.push_back(0.0);
 }
 
 double Node::activation(){
@@ -30,6 +28,11 @@ void Node::initWeights(int numNextNodes){
 double Node::getWeightNo(int n){  return weights[n];}
 
 double Node::getVal(){ return value;}
+
+void Node::setValue(double v){
+
+    value = v;
+}
 
 //----------------Net-------------------------
 
@@ -87,14 +90,22 @@ void Net::initializeWeights(){
 
     // Go Trough all Layers:
     for(size_t i = 0; i < net.size() - 1; i++){
-        for(int j = 0; j < net[i].size(); j++){
+        for(size_t j = 0; j < net[i].size(); j++){
             net[i][j].initWeights(net[i + 1].size());
         }
     }
 }
 
-double Net::predict(){
+void Net::predict(){
     
     // Here is work to do:
+    
+}
 
+void Net::setInput(vector<double> input){
+
+    // Set Input into the Value of the Nodes of the Input Layer:
+    for(size_t i = 0; i < net[i].size(); i++){
+        net[0][i].setValue(input[i]);
+    }
 }
