@@ -14,6 +14,19 @@ double Node::activation(){
     return activation;
 }
 
+void Node::initWeights(int numNextNodes){
+
+    double random = 0;
+
+    for(int i = 0; i < numNextNodes; i++){
+        // Push Back a random Value to the Weights:
+        random = double((rand() % 10000)) / 10000;
+        weights.push_back(random);
+
+        cout << "Add " << random << endl;
+    }
+}
+
 double Node::getWeightNo(int n){  return weights[n];}
 
 double Node::getVal(){ return value;}
@@ -53,6 +66,7 @@ void Net::print(){
         }
         cout << endl;
     }
+    cout << endl;
 }
 
 void Net::fprint(){
@@ -65,6 +79,17 @@ void Net::fprint(){
             else cout << net[j][i].getVal() << " ";
         }
         cout << endl;
+    }
+    cout << endl;
+}
+
+void Net::initializeWeights(){
+
+    // Go Trough all Layers:
+    for(size_t i = 0; i < net.size() - 1; i++){
+        for(int j = 0; j < net[i].size(); j++){
+            net[i][j].initWeights(net[i + 1].size());
+        }
     }
 }
 
