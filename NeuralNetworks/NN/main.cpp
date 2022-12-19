@@ -23,6 +23,7 @@ int main(){
     myNet.initializeWeights();
 
     myNet.predict();
+    myNet.printWeights();
 
     return 0;
 }

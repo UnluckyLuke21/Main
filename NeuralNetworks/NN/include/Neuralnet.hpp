@@ -33,6 +33,7 @@ public:
     //  m_outputNodes = Number of Output Nodes
     Net(int m_inputNodes, int m_hiddenLayers, int m_NodesInHiddenLayer, int m_outputNodes);
     void print();
+    void printWeights();
     void fprint();
     void initializeWeights();
     void predict();

@@ -72,6 +72,23 @@ void Net::print(){
     cout << endl;
 }
 
+void Net::printWeights(){
+
+    cout << "Neural Net Weights:" << endl << endl;
+
+    for(size_t i = 0; i < net.size() - 1; i++){
+        cout << "Weights for Layer " << i << endl;
+        // Loop for the Nodes in the Layer:
+        for(size_t j = 0; j < net[i].size(); j++){
+            cout << "Node [" << i << "][" << j <<"]" << endl;
+            //Loop for the Weights inside the Node:
+            for(size_t k = 0; k < net[i + 1].size(); k++){
+                cout << net[i][j].getWeightNo(k) << endl;
+            }
+        }
+    }
+}
+
 void Net::fprint(){
 
     cout << "Neural Net:" << endl << endl;
@@ -90,6 +107,7 @@ void Net::initializeWeights(){
 
     // Go Trough all Layers:
     for(size_t i = 0; i < net.size() - 1; i++){
+        // Go trough the Nodes of the Layer:
         for(size_t j = 0; j < net[i].size(); j++){
             net[i][j].initWeights(net[i + 1].size());
         }
