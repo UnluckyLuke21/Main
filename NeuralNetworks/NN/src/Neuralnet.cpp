@@ -5,13 +5,6 @@
 Node::Node(double v) : value(v){
 }
 
-double Node::activation(){
-
-    double activation = 0.0;
-    
-    return activation;
-}
-
 void Node::initWeights(int numNextNodes){
 
     double random = 0;
@@ -31,7 +24,12 @@ double Node::getVal(){ return value;}
 
 void Node::setValue(double v){
 
-    value = v;
+    if(bias) return;
+    else value = v;
+}
+
+void Node::biasTrue(){
+    bias = true;
 }
 
 //----------------Net-------------------------
@@ -56,6 +54,20 @@ Net::Net(int m_inputNodes, int m_hiddenLayers, int m_NodesInHiddenLayer, int m_o
     net.push_back(Layer());
     for(int i = 0; i < m_outputNodes; i++){
         net[m_hiddenLayers + 1].push_back(2.0);
+    }
+
+    // Create Bias:
+
+    // Input Layer:
+    net[0].push_back(1.0);
+    net[0][net[0].size()].biasTrue();
+
+    // Hidden Layers:
+    // Loop trough each hidden Layer:
+    for(size_t i = 1; i < net.size() - 1; i++){
+        net[i].push_back(1.0);
+        net[i][net[i].size() - 1].biasTrue();
+        cout << "Net[" << i << "][" << net[i].size() - 1 << "] is now a Bias" << endl;
     }
 }
 
@@ -114,9 +126,35 @@ void Net::initializeWeights(){
     }
 }
 
+double Net::sigmoid(double v){
+
+    return (1 / (1 + pow(M_E, -v))); 
+}
+
 void Net::predict(){
     
-    // Here is work to do:
+    double v = 0.0;
+
+    // Loop through the Layers:
+    for(size_t i = 1; i < net.size(); i++){ // Start Index by 1 because we dont need to change the Input Node Values
+        // Loop trough the Nodes:
+        for(size_t j = 0; j < net[i].size(); j++){
+            v = 0.0;
+            // Calculate Value for the Node:
+            // Loop through all Nodes in the Layer behind the current Layer:
+            for(size_t k = 0; k < net[i - 1].size(); k++){
+                v += net[i - 1][k].getVal() * net[i - 1][k].getWeightNo(j);
+            }
+
+            // Pass v into activation Function:
+
+            // Assign the calculated Value to the current Node:
+            //cout << "Calculated Value for Node[" << i << "][" << j << "] = " << v << endl;
+            v = sigmoid(v);
+            net[i][j].setValue(v);
+        }
+
+    }
     
 }
 

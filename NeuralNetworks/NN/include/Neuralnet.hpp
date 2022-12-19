@@ -1,10 +1,13 @@
 #include <vector>
 #include <iostream>
 #include <cstdlib>
+#include <math.h>
 
 using std::vector;
 using std::cout;
 using std::endl;
+
+#define BIAS 1
 
 #pragma once
 
@@ -15,14 +18,15 @@ typedef vector<Node> Layer;
 class Node{
 public:
     Node(double v);
-    double activation();
     void initWeights(int numNextNodes);
     double getWeightNo(int n);
     double getVal();
     void setValue(double v);
+    void biasTrue();
 private:
     double value;
     vector<double> weights;
+    bool bias = false;
 };
 
 class Net{
@@ -33,6 +37,7 @@ public:
     //  m_outputNodes = Number of Output Nodes
     Net(int m_inputNodes, int m_hiddenLayers, int m_NodesInHiddenLayer, int m_outputNodes);
     void print();
+    double sigmoid(double v);
     void printWeights();
     void fprint();
     void initializeWeights();

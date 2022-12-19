@@ -21,9 +21,11 @@ int main(){
     myNet.fprint();
 
     myNet.initializeWeights();
+    myNet.printWeights();
 
     myNet.predict();
-    myNet.printWeights();
+
+    myNet.fprint();
 
     return 0;
 }
