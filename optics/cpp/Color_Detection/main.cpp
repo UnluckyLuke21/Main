@@ -4,6 +4,9 @@
 #include <opencv4/opencv2/highgui.hpp>
 #include <opencv4/opencv2/imgproc/imgproc.hpp>
 #include <opencv2/videoio.hpp>
+#include <opencv2/core/cuda.hpp>
+#include <opencv2/dnn.hpp>
+
 
 #include <iostream>
 #include <vector>
