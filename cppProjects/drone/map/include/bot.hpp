@@ -18,8 +18,4 @@ private:
     
     // Map
     vector<vector<int>> map;
-    vector<vector<int>> upright;
-    vector<vector<int>> botright;
-    vector<vector<int>> upleft;
-    vector<vector<int>> botleft;
 };
