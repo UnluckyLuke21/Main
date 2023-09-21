@@ -1,4 +1,5 @@
 import tensorflow as tf
+import cv2 
 import numpy as np
 
 print(tf.__version__)
@@ -45,3 +46,25 @@ output = probability_model(x_test[0:1])
 output = output.numpy()[0].tolist()
 print("Predicted ->", output.index(max(output)))
 
+# Opencv part
+
+# Getting the resized Image:
+myimg = cv2.imread("image.jpg")
+#cv2.imshow("Original Image", myimg)
+resimg = cv2.resize(myimg, (28, 28), interpolation= cv2.INTER_LINEAR)
+#cv2.imshow("Resized Image", resimg)
+
+#cv2.waitKey()
+#cv2.destroyAllWindows()
+
+# Make the Image 1 dimensional:
+grayImage = cv2.cvtColor(resimg, cv2.COLOR_BGR2GRAY)
+
+# Get the image into the Model:
+np_image_data = np.asarray(grayImage, dtype="int32")
+np_image_data = np_image_data.flatten()
+print(np_image_data)
+
+output = probability_model(np_image_data)
+output = output.numpy()[0].tolist()
+print("Predicted ->", output.index(max(output)))
