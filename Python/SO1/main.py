@@ -22,10 +22,30 @@ def swapGlobal(a, b):
     bRef = []
 
     for key, val in globals().items():
-        print(f"Key: {key}, Val: {val}")
+
+        if val is a:
+            aRef.append(key)
+        if val is b:
+            bRef.append(key)
+
+    if len(aRef) == 0:
+        raise ValueError('cannot swap first argument')
+    if len(bRef) == 0:
+        raise ValueError('cannot swap second argument')
+
+    for ref in aRef:
+        globals()[ref] = b
+    for ref in bRef:
+        globals()[ref] = a
 
 
 o1 = Obj1(1,2)
 o2 = Obj2(3)
 
+print(o1.a, o1.b)
+print(o2.x)
+
 swapGlobal(o1, o2)
+
+print(o1.x)
+print(o2.a, o2.b)
