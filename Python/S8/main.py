@@ -19,15 +19,11 @@ class Rabbit(object):
     def endOfYear(self):
         self.age += 1
 
-    @property
-    @abc.abstractmethod
-    def gender(self):
-        raise NotImplementedError()
-
     @classmethod
     def genesis(cls):
         # TODO
-        pass
+        cls.population.append(Male())
+        cls.population.append(Female())
 
     @classmethod
     def advanceOneYear(cls):
@@ -48,8 +44,14 @@ class Rabbit(object):
 
     @classmethod
     def count(cls):
-        # TODO
-        pass
+        # Count Females and Males:
+        dico = [0, 0]
+        for rabbit in cls.population:
+            if rabbit.gender == 'F':
+                dico[0] += 1
+            if rabbit.gender == 'M':
+                dico[1] += 1
+        return dico
 
     @classmethod
     def stats(cls):
@@ -66,35 +68,39 @@ class Rabbit(object):
 
 class Female(Rabbit):
 
+    def __init__(self):
+        Rabbit.__init__(self)
+        self.gender = 'F'
+
     def yearAction(self):
-        # TODO
-        pass
+
+        if self.age < 1:
+            return
+
+        if self.age > 4:
+            return
+
+        for i in range (Rabbit.nRabbitPerBirth['F']):
+            Rabbit.population.append(Female())
+
+        Rabbit.population.append(Male())
+        Rabbit.population.append(Male())
+
+        # TODO Giving birth
+        # Reading Info how many Rabbits they should be:
+        # Female Rabbits:
+        
+        #print(f'Gave Birth to {fem} Feamel Rabbits and {mal} Rabbits')
 
 #----------------------------------------------
 
 class Male(Rabbit):
 
-    def __del__(self):
-        # TODO
-        pass
-
-    def endOfYear(self):
-        # TODO
-        pass
-
-class Female(Rabbit):
-    
-    def yearAction(self):
-        #TODO
-        pass
-
-class Male(Rabbit):
+    def __init__(self):
+        Rabbit.__init__(self)
+        self.gender = 'M'
 
     def __del__(self):
-        #TODO
-        pass
-
-    def endOfYear(self):
         #TODO
         pass
 
@@ -105,7 +111,7 @@ if __name__ == '__main__':
     popEvol = []
 
     print('Running rabbit simulator')
-    Rabbit.genesis() # Entstehung
+    Rabbit.genesis()
     for n in range(nYears):
         print(f' -- year {n+1}')
         print(Rabbit.stats())
