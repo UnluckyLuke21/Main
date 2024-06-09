@@ -26,7 +26,6 @@ class Rabbit(object):
 
     @classmethod
     def genesis(cls):
-        # TODO
         pass
 
     @classmethod
@@ -66,6 +65,9 @@ class Rabbit(object):
 
 class Female(Rabbit):
 
+    def __init__(self):
+        self.gender = 'F'
+
     def yearAction(self):
         # TODO
         pass
@@ -74,28 +76,15 @@ class Female(Rabbit):
 
 class Male(Rabbit):
 
+    def __init__(self):
+        self.gender = 'M'
+
     def __del__(self):
         # TODO
         pass
 
     def endOfYear(self):
         # TODO
-        pass
-
-class Female(Rabbit):
-    
-    def yearAction(self):
-        #TODO
-        pass
-
-class Male(Rabbit):
-
-    def __del__(self):
-        #TODO
-        pass
-
-    def endOfYear(self):
-        #TODO
         pass
 
 #-------------------------------------------------
