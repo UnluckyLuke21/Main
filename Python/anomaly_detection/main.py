@@ -1,4 +1,3 @@
-import train
 import matplotlib.pyplot as plt
 from PIL import Image
 
@@ -17,7 +16,9 @@ from tqdm.auto import tqdm
 
 transform = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTensor()])
 
-#good_dataset = ImageFolder(root=r"D:\Anaconda Projects\anomaly_detection\carpet\train", transform=transform)
+train_image_path = "carpet/train"
+
+good_dataset = ImageFolder(root=train_image_path, transform=transform)
 
 BS = 16
 train_dataset, test_dataset = torch.utils.data.random_split(good_dataset, [0.8, 0.2])
@@ -57,12 +58,15 @@ class Autoencoder(nn.Module):
 model = Autoencoder()
 
 # Load the trained model:
-ckpoints = torch.load("simple_autoencoder_12_loss.pth")
+ckpoints = torch.load("simple_autoencoder_12_loss.pth", map_location=torch.device("cpu")) # Comment this if your device has Cuda GPU
+#ckpoints = torch.load("simple_autoencoder_12_loss.pth") # Uncomment this if your device has Cuda GPU
 model.load_state_dict(ckpoints)
+model = model.to(torch.device("cpu")) # Comment this if your device has Cuda GPU
 
 with torch.no_grad():
     for data, _ in train_loader:
-        data = data.cuda()
+        #data = data.cuda() # Uncomment this if your device has Cuda GPU
+        data = data.to(torch.device("cpu")) # Comment this if your device has Cuda GPU
         recon = model(data)
         break
 
